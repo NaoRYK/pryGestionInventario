@@ -38,9 +38,10 @@
             // lblGreetings
             // 
             lblGreetings.AutoSize = true;
-            lblGreetings.Location = new Point(93, 23);
+            lblGreetings.Font = new Font("Segoe UI", 15F);
+            lblGreetings.Location = new Point(53, 39);
             lblGreetings.Name = "lblGreetings";
-            lblGreetings.Size = new Size(171, 15);
+            lblGreetings.Size = new Size(283, 28);
             lblGreetings.TabIndex = 0;
             lblGreetings.Text = "Clickee una opcion para operar";
             lblGreetings.Click += label1_Click;
