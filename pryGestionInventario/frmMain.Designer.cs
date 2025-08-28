@@ -54,6 +54,7 @@
             btnModificar.TabIndex = 1;
             btnModificar.Text = "Modificar productos";
             btnModificar.UseVisualStyleBackColor = true;
+            btnModificar.Click += btnModificar_Click;
             // 
             // btnFiltrar
             // 

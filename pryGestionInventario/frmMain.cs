@@ -11,5 +11,13 @@ namespace pryGestionInventario
         {
 
         }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmModificar frmMod = new frmModificar();
+            frmMod.ShowDialog();
+
+        }
     }
 }
