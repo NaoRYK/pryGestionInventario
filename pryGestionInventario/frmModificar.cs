@@ -19,10 +19,6 @@ namespace pryGestionInventario
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
 
 
@@ -81,7 +77,7 @@ namespace pryGestionInventario
                 DataRow nuevo = dt.NewRow();
                 nuevo["Id"] = 0; // 
                 nuevo["Codigo"] = "";
-                nuevo["Nombre"] = "-- Ningún producto seleccionado --";
+                nuevo["Nombre"] = "Ningún producto seleccionado";
                 dt.Rows.InsertAt(nuevo, 0);
 
 
@@ -284,5 +280,7 @@ namespace pryGestionInventario
         {
             EditarProducto();
         }
+
+
     }
 }

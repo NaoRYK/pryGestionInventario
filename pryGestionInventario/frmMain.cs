@@ -7,10 +7,7 @@ namespace pryGestionInventario
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
@@ -18,6 +15,13 @@ namespace pryGestionInventario
             frmModificar frmMod = new frmModificar();
             frmMod.ShowDialog();
 
+        }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmFiltrar frmFiltrar = new frmFiltrar();
+            frmFiltrar.ShowDialog();
         }
     }
 }

@@ -57,7 +57,6 @@
             lblProductInfo.Size = new Size(143, 15);
             lblProductInfo.TabIndex = 0;
             lblProductInfo.Text = "Informacion del producto";
-            lblProductInfo.Click += label1_Click;
             // 
             // txtProductName
             // 

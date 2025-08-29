@@ -44,7 +44,6 @@
             lblGreetings.Size = new Size(283, 28);
             lblGreetings.TabIndex = 0;
             lblGreetings.Text = "Clickee una opcion para operar";
-            lblGreetings.Click += label1_Click;
             // 
             // btnModificar
             // 
@@ -64,6 +63,7 @@
             btnFiltrar.TabIndex = 2;
             btnFiltrar.Text = "Filtrar productos";
             btnFiltrar.UseVisualStyleBackColor = true;
+            btnFiltrar.Click += btnFiltrar_Click;
             // 
             // btnReportes
             // 
