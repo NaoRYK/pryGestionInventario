@@ -29,6 +29,11 @@ namespace pryGestionInventario
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
+                DataRow row = dt.NewRow();
+                row["Id"] = 0;
+                row["Nombre"] = "Todas";
+                dt.Rows.InsertAt(row, 0);
+
                 lstCategorias.DataSource = dt;
                 lstCategorias.DisplayMember = "Nombre"; // lo que se ve
                 lstCategorias.ValueMember = "Id";       // el valor real
@@ -57,24 +62,56 @@ namespace pryGestionInventario
             lstViewProductos.Columns.Add("Nombre", 150);
             lstViewProductos.Columns.Add("Precio", 80);
             lstViewProductos.Columns.Add("Stock", 80);
+            lstViewProductos.Columns.Add("Categoria", 80);
         }
 
 
         private void BuscarProductos()
         {
+            if (lstFiltros.SelectedItem == null || string.IsNullOrWhiteSpace(txtProductName.Text))
+            {
+                MessageBox.Show("Selecciona un filtro y escribe un valor.", "Inventario");
+                return;
+            }
+
+
 
             string filterType = (string)lstFiltros.SelectedItem;
             char firstChar = char.ToUpper(filterType[0]);
             string restOfString = filterType.Substring(1);
             string formatedFilterType = firstChar + restOfString;
 
-            string sql = $"'SELECT Id,Codigo,Nombre, Precio, Stock FROM Productos WHERE {formatedFilterType} = {txtProductName.Text}'";
+            int categoriaId = Convert.ToInt32(lstCategorias.SelectedValue);
+
+
+            string sql = $"SELECT Id, Codigo, Nombre, Precio, Stock FROM Productos WHERE {filterType} = ?";
+
+            if (categoriaId != 0)
+            {
+                sql += " AND CategoriaId = ?";
+            }
+
+            lstViewProductos.Items.Clear();
+
             using (var conn = dbConnection.GetConnection())
             {
                 conn.Open();
 
                 using (OleDbCommand cmd = new OleDbCommand(sql, conn))
-                using (OleDbDataReader reader = cmd.ExecuteReader())
+                {
+                    if (filterType == "Nombre" || filterType == "Codigo")
+                    {
+                        cmd.Parameters.AddWithValue("?", txtProductName.Text.ToString());
+                    }
+
+
+                    if (categoriaId != 0)
+                    {
+                        cmd.Parameters.AddWithValue("?", categoriaId);
+                    }
+
+
+                    using (OleDbDataReader reader = cmd.ExecuteReader())
 
                     while (reader.Read())
                     {
@@ -91,6 +128,7 @@ namespace pryGestionInventario
                     }
 
 
+                }
 
 
                 
