@@ -204,8 +204,10 @@
             // 
             // frmModificar
             // 
+            AcceptButton = btnUploadProduct;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnCancelar_modificar;
             ClientSize = new Size(457, 264);
             Controls.Add(lblCode);
             Controls.Add(lblName);
@@ -224,7 +226,9 @@
             Controls.Add(txtProductCode);
             Controls.Add(txtProductName);
             Controls.Add(lblProductInfo);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "frmModificar";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Modificar";
             Load += frmModificar_Load;
             ((System.ComponentModel.ISupportInitialize)numProductPrice).EndInit();

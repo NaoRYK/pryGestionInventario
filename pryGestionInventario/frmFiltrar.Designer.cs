@@ -133,8 +133,10 @@
             // 
             // frmFiltrar
             // 
+            AcceptButton = btnFiltrar;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            CancelButton = btnCancelar_modificar;
             ClientSize = new Size(420, 415);
             Controls.Add(btnFiltrar);
             Controls.Add(lstViewProductos);
@@ -146,7 +148,9 @@
             Controls.Add(lblFiltrar);
             Controls.Add(btnCancelar_modificar);
             Controls.Add(txtProductName);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "frmFiltrar";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Filtrar";
             Load += frmFiltrar_Load;
             ResumeLayout(false);
